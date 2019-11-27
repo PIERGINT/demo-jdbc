@@ -1,0 +1,30 @@
+14:41:33.728 [main] INFO  dev.console.App -
+				Bonjour Slf4J !
+14:41:33.728 [main] INFO  dev.console.App -
+				Bonjour Slf4J !
+14:41:33.732 [main] INFO  dev.console.App -
+				Implementation Logback
+14:41:33.732 [main] INFO  dev.console.App -
+				Implementation Logback
+14:41:33.747 [main] DEBUG dev.service.AppService -
+				Traitement 1 : param = {GNAP}
+14:41:49.611 [main] INFO  dev.console.App -
+				Bonjour Slf4J !
+14:41:49.611 [main] INFO  dev.console.App -
+				Bonjour Slf4J !
+14:41:49.614 [main] INFO  dev.console.App -
+				Implementation Logback
+14:41:49.614 [main] INFO  dev.console.App -
+				Implementation Logback
+14:41:49.615 [main] DEBUG dev.service.AppService -
+				Traitement 1 : param = {GNAP}
+14:42:28.450 [main] INFO  dev.console.App -
+				Bonjour Slf4J !
+14:42:28.450 [main] INFO  dev.console.App -
+				Bonjour Slf4J !
+14:42:28.452 [main] INFO  dev.console.App -
+				Implementation Logback
+14:42:28.452 [main] INFO  dev.console.App -
+				Implementation Logback
+14:42:28.453 [main] DEBUG dev.service.AppService -
+				Traitement 1 : param = {GNAP}
