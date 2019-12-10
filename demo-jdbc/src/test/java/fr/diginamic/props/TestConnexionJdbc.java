@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import org.mariadb.jdbc.Driver;
 import java.sql.SQLException;
 import java.sql.Connection;
+import java.util.ResourceBundle;
 
 public class TestConnexionJdbc {
 
@@ -22,14 +23,19 @@ public class TestConnexionJdbc {
 				System.out.println("Unloaded");
 			}
 			
-			
+			ResourceBundle cle1 = ResourceBundle.getBundle("Pierredatafiles");
+			String urlName = cle1.getString("Pierredatafiles.url");
 		
-		try {
-			Connection connect = DriverManager.getConnection(
-					"jdbc:mariadb://bhxqckbmk7uf6rhmvkob-mysql.services.clever-cloud.com:3306/bhxqckbmk7uf6rhmvkob",
-					"ujwzpdfm288mqwtu", "o6wWk1KaV5OZ7lLalP9W");
+			ResourceBundle cle2 = ResourceBundle.getBundle("Pierredatafiles");
+			String userName = cle2.getString("Pierredatafiles.user");
 			
-			System.out.println("Connect");
+			ResourceBundle cle3 = ResourceBundle.getBundle("Pierredatafiles");
+			String password = cle3.getString("Pierredatafiles.password");
+			
+			try {
+			Connection connect = DriverManager.getConnection(urlName,userName,password);
+			
+			System.out.println("Connected");
 			
 			connect.close();
 			
@@ -37,7 +43,7 @@ public class TestConnexionJdbc {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-			System.out.println();
+			System.out.println("Connection failed");
 			
 			
 		}
