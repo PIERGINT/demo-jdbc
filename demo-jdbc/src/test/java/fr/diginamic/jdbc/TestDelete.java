@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.util.ResourceBundle;
 import java.sql.Statement;
+import fr.diginamic.jdbc.dao.FournisseurDaoJdbc;
 
 public class TestDelete {
 
@@ -40,7 +41,10 @@ public class TestDelete {
 		Statement perState = connect.createStatement();
 		int nb = perState.executeUpdate("DELETE FROM FOURNISSEUR WHERE ID=4");
 		
+		System.out.println(nb);
+		
 		connect.close();
+		perState.close();
 		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

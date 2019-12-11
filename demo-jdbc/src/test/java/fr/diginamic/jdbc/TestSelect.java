@@ -1,7 +1,5 @@
 package fr.diginamic.jdbc;
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,6 +9,7 @@ import fr.diginamic.jdbc.entites.*;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import fr.diginamic.jdbc.dao.FournisseurDaoJdbc;
 
 public class TestSelect {
 
@@ -44,6 +43,7 @@ public class TestSelect {
 		
 		System.out.println("Connected");
 		
+		
 		Statement perState = connect.createStatement();
 		ResultSet curseur = perState.executeQuery("SELECT ID, NOM FROM FOURNISSEUR");
 		
@@ -60,14 +60,16 @@ public class TestSelect {
 		
 		curseur.close();
 		connect.close();
+		perState.close();
 		
-	} catch (SQLException e) {
+		}
+	
+		catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		
 		System.out.println("Connection failed");
 		
-		
-	}
-}
-}
+	}	
+	
+	}}

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.util.ResourceBundle;
 import java.sql.Statement;
+import fr.diginamic.jdbc.dao.FournisseurDaoJdbc;
 
 public class TestUpdate {
 
@@ -39,8 +40,10 @@ public class TestUpdate {
 		
 		Statement perState = connect.createStatement();
 		int nb = perState.executeUpdate("UPDATE FOURNISSEUR SET NOM='La Maison des Peintures'WHERE ID=4");
-				
+		
+		System.out.println(nb);
 		connect.close();
+		perState.close();
 		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

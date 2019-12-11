@@ -43,7 +43,8 @@ public class TestInsertion {
 			System.out.println(nb);
 			
 			connect.close();
-
+			perState.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
