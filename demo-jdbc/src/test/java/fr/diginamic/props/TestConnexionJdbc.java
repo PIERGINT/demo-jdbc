@@ -1,10 +1,12 @@
 package fr.diginamic.props;
 
 import java.sql.DriverManager;
+
 import org.mariadb.jdbc.Driver;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.util.ResourceBundle;
+import fr.diginamic.jdbc.dao.FournisseurDaoJdbc;
 
 public class TestConnexionJdbc {
 
@@ -38,6 +40,7 @@ public class TestConnexionJdbc {
 			System.out.println("Connected");
 			
 			connect.close();
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

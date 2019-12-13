@@ -129,7 +129,7 @@ public class FournisseurDaoJdbc implements FournisseurDao {
 		try {
 			perState = connect.createStatement();
 			nb = perState.executeUpdate("INSERT INTO FOURNISSEUR (ID,NOM) VALUES (" + fournisseur.getId() + ",'"
-					+fournisseur.getNom() + "'");
+					+fournisseur.getNom() + "')");
 
 			System.out.println(nb);
 		} catch (SQLException e) {
