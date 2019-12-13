@@ -63,20 +63,19 @@ public class FournisseurDaoJdbc implements FournisseurDao {
 	public List<Fournisseur> extraire() {
 
 		insertConnect();
-
+		ArrayList<Fournisseur> fournisseur = new ArrayList<>();
 		try {
 			perState = connect.createStatement();
 			curseur = perState.executeQuery("SELECT ID, NOM FROM FOURNISSEUR");
 
-			ArrayList<Fournisseur> fournisseur = new ArrayList<>();
+			
 
 			while (curseur.next()) {
 				id = curseur.getInt("ID");
 				nom = curseur.getString("NOM");
 				Fournisseur fournisseurCourant = new Fournisseur(id, nom);
 				fournisseur.add(fournisseurCourant);
-
-				System.out.println(fournisseurCourant.toString());
+				
 			}
 		}
 
@@ -129,8 +128,8 @@ public class FournisseurDaoJdbc implements FournisseurDao {
 		int nb;
 		try {
 			perState = connect.createStatement();
-			nb = perState.executeUpdate("INSERT INTO FOURNISSEUR (ID,NOM) VALUES (" + fournisseur.getId() + ""
-					+ fournisseur.getNom() + ")");
+			nb = perState.executeUpdate("INSERT INTO FOURNISSEUR (ID,NOM) VALUES (" + fournisseur.getId() + ",'"
+					+fournisseur.getNom() + "'");
 
 			System.out.println(nb);
 		} catch (SQLException e) {
@@ -177,7 +176,7 @@ public class FournisseurDaoJdbc implements FournisseurDao {
 		int nb = 0;
 		try {
 			perState = connect.createStatement();
-			nb = perState.executeUpdate("UPDATE FOURNISSEUR SET NOM =("+ nouveauNom+") WHERE NOM = ("+ancienNom+")");
+			nb = perState.executeUpdate("UPDATE FOURNISSEUR SET NOM ='"+ nouveauNom+"' WHERE NOM = '"+ancienNom+"'");
 			System.out.println("Nombre de lignes mises à jour" + nb);
 
 		} catch (SQLException e) {
@@ -224,14 +223,14 @@ public class FournisseurDaoJdbc implements FournisseurDao {
 		int nb = 0;
 		try {
 			perState = connect.createStatement();
-			nb = perState.executeUpdate("DELETE FROM FOURNISSEUR WHERE NOM =("+ fournisseur.getNom()+")");
+			nb = perState.executeUpdate("DELETE FROM FOURNISSEUR WHERE NOM ='"+ fournisseur.getNom()+"'");
 			System.out.println("Nombre de lignes mises à jour" + nb);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
-			System.out.println("Mise à jour impossible");
+			System.out.println("Suppression impossible");
 		}
 
 		finally {
@@ -266,4 +265,22 @@ public class FournisseurDaoJdbc implements FournisseurDao {
 
 		return true;
 
-}}
+}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	
+}
